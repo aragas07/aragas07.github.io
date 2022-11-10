@@ -1,0 +1,325 @@
+
+    body, html{
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        /* background-image: radial-gradient(#373737,#272727,#171717,#111); */
+        background-color: #000;
+        background-size: cover;
+        background-attachment: fixed; 
+        background-repeat: no-repeat;
+        scroll-behavior: smooth;
+        margin: 0;
+    }
+
+    #myinfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+    }
+
+    .nav-items{
+        position: absolute;
+        right: 0;
+        padding: 1em;
+        text-align: center;
+    }
+
+    .nav-items a{
+        color: #ccc;
+        text-decoration: none;
+        margin: 0px 10px;
+        padding: 7px 10px;
+        position: relative;
+        border-radius: 5px;
+        z-index: 0;
+        cursor: pointer;
+        font-weight: 550;
+    }
+
+    .nav-items a:before, .nav-items a:after
+    {
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: -3%;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-50%) translateY(-5%) scale(0.8);
+        background: transparent;
+        padding: 0 10px;
+        content: "";
+        transition: all 0.3s;
+        border-radius: 10px;
+        border-top: 3px solid #97c9e6;
+        border-bottom: 4px solid #97c9e6;
+        z-index: 1;
+    }
+
+    .nav-items a:hover:before
+    {
+        opacity: 1;
+        animation-name: navanimation;
+        animation-duration: 1s;
+    }
+
+    .nav-items a:hover:after
+    {
+        opacity: 1;
+        animation-name: navanimation;
+        animation-duration: 1s;
+    }
+
+    @keyframes navanimation {
+        0%{
+            width: 0;
+            height: 0;
+            top: 45%;
+        }
+        50%{
+            width: 100%;
+            height: 0;
+            top: 45%;
+        }
+        100%{
+            top: -3%;
+            height: 100%;
+            color: #fff;
+        }
+    }
+
+
+    #navigation{
+        position: fixed;
+        display: flex;
+        align-items: center;
+        height: 55px;
+        top: 0;
+        padding: 10px 0 0 0;
+        width: 100%;
+        transition: 0.5s;
+    }
+
+    .justify{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .size-auto{
+        height: auto;
+        width: 100%;
+    }
+
+    .m-auto{
+        text-align: center;
+    }
+
+    .sample{
+        font-size: 40px;
+        color: #111;
+    }    
+
+    text{
+        letter-spacing: 3px;
+        stroke: #ddd;
+        fill: #ccc;
+        stroke-width: 1px;
+        transition: 1s;
+        text-shadow: 0 0 5px #3bf2ff;
+    }
+
+    svg{
+        text-anchor: middle;
+        text-align: center;
+    }
+
+    .text-linear text{
+        animation: textAnimate 3s none linear;
+    }
+
+    .text-reverse text{
+        animation: textAnimate 3s none reverse;
+    }
+
+    text:hover{
+        fill: rgba(0,0,0,0)!important;
+    }
+
+    .myname{
+        font-size: 70px;
+    }
+
+    .myjob{
+        font-size: 30px;
+    }
+
+    @keyframes textAnimate {
+        0% {
+            stroke-dasharray: 0 55%;
+            stroke-dashoffset:  100%;
+            fill: rgba(0,0,0,0);
+        }
+        
+        75% {
+            stroke-dasharray: 55% 0;
+            stroke-dashoffstet: -100%;
+            fill: rgba(0,0,0,0);
+        }
+        100%{
+            fill: #ddd;
+        }
+        
+    }
+
+    section{
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+    }
+
+    section:nth-child(odd){
+        background-color: #ccc;
+    }
+
+    .col-75{
+        width: 75%;
+    }
+
+    .row{
+        display: flex;
+    }
+
+    .h-title{
+        font-size: 20px;
+        color: #ddd;    
+    }
+
+    .img-cont{
+        position: absolute;
+        display: flex;
+    }
+
+    .col{
+        flex: auto;
+    }
+
+    .img-cont img{
+        flex: auto;
+        height: 35px;
+        margin-left: 10px;
+    }
+
+    .active{
+        color: #00eeff!important;
+        text-shadow: 0 0 10px #38b6b2,0 0 4px #1bbeb9;
+    }
+
+    .container{
+        height: 400px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .column{
+        height: 80px;
+    }
+    .arrow{
+        position: absolute;
+        width: 300px;
+        height: 45px;
+        margin-left: 40px;
+        margin-top: 15px;
+        animation: arrow 3s infinite linear;
+    }
+
+    @keyframes arrow{
+        0%{
+            transform: rotateX(0deg);
+        }
+        100%{
+            transform: rotateX(360deg);
+        }
+
+    }
+    .arrow_line{
+        position: absolute;
+        width: 280px;
+        margin-left: 47px;
+        margin-top: 36px;
+        z-index: 50;
+        background-color: #555468;
+        height: 4px;
+        border-radius: 5px;
+    }
+
+
+    .arrow_head{
+        position: absolute;
+        right: 13px;
+        background-image: linear-gradient(-45deg, #876f6b 0%, #876f6b, transparent 50%);
+        width: 30px;
+        height: 30px;
+        top: 8px;
+        z-index: 50;
+        transform: rotateZ(-45deg);
+    }
+
+    .arrow_top, .arrow_bottom{
+        position: absolute;
+        left: 5px;
+        width: 50px;
+        height: 21px;
+        background-image: linear-gradient(to right, #876f6b 0%, #876f6b 70%, #500606 70%);
+        transform: skewX(30deg);
+    }
+
+    .arrow_bottom{
+        bottom: 0;
+        background-image: linear-gradient(to right, #876f6b 0%, #876f6b 70%, #500606 70%);
+        transform: skewX(-30deg);
+    }
+
+    .cont-line{
+        position: absolute;
+        width: 30%;
+        overflow: hidden;
+        height: 80px;
+    }
+
+    .line{
+        position: absolute;
+        left: 100%;
+        width: 100px;
+        height: 4px;
+        background-image: linear-gradient(to left,  #ffffff00, #afafafaf);
+        animation: line 3s infinite linear;
+    }
+
+    .line-2{
+        margin-top: 70px;
+        animation-delay: 0.3s;
+    }
+
+    @keyframes line{
+        0%, 20%, 40%, 60%, 80%, 100%{
+            left: 130%;
+        }
+        19.9%, 39.9%, 59.9%, 79.9%, 99.9%{
+            left: -100px;
+        }
+    }
+
+    .canvas{
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .canvas:hover{
+        z-index: -1;
+    }
