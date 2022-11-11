@@ -5,8 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
-    <p></p>
+  <div class="menu-btn">
+    <div class="menu-btn_burger"></div>
+  </div>
+
+  <script>
+    const menuBtn = document.querySelector(".menu-btn");
+    let menuOpen = false;
+    menuBtn.addEventListener('click', () => {
+      console.log("clicked");
+      if(!menuOpen){
+        menuBtn.classList.add('open');
+        menuOpen = true;
+      }else{
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+      }
+    })
+  </script>
 </body>
 </html>

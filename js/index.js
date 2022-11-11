@@ -4,18 +4,28 @@ home = document.getElementById('myinfo'),
 about = document.getElementById('about'),
 section = document.querySelectorAll("section");
 var n1 = 0, str ='';
+let bo = true;
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.addEventListener('resize',function(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+})
 window.onscroll = function(){
     const text = document.querySelectorAll("text"),
     recttop = home.getBoundingClientRect(),
     rectbottom = about.getBoundingClientRect();
     
+    if(this.screen.width < 641) bo = false;
+    else bo = true;
     document.querySelectorAll(".nav-items a").forEach(function(i){
         i.className="";
     })
     section.forEach(function(e){
         s = e.getBoundingClientRect();
         if(s.top < window.innerHeight/1.5 && s.top > -window.innerHeight/2 && e.id != "myinfo" && e.id != ""){
-            console.log(e.id+" "+e.className);
             const theId = "a-"+e.id;
             const el = document.querySelector(`#${CSS.escape(theId)}`);
             el.className = "active";
@@ -25,12 +35,12 @@ window.onscroll = function(){
         var compute = (rectbottom.top/recttop.bottom),
         per = compute * 100;
         n1 = 100-per;
-        if(per >= 0){
+        if(per >= 0 && bo){
             str = per+" "+n1+"";
             text.forEach(function (e){
                 e.style.strokeDasharray = str;
                 e.style.fill = 'rgba(204,204,204,'+(compute - (1 - compute))+')';
-                if(per < 25){
+                if(per < 55){
                     e.style.opacity = compute+'';
                 }else{
                     e.style.opacity = "1";
@@ -41,20 +51,12 @@ window.onscroll = function(){
     view(recttop,rectbottom);
     if(document.documentElement.scrollTop > 150){
         nav.style.backgroundColor = "#1e1e27";
-        nav.style.padding = "0";
+        if(bo) nav.style.padding = "0";
     }else{
         nav.style.backgroundColor = "#50505000";
-        nav.style.padding = "10px 0 0 0";
+        if(bo) nav.style.padding = "10px 0 0 0";
     }
 }
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-window.addEventListener('resize',function(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-})
 let spots = [];
 let hue = 0;
 const mouse = {
@@ -112,3 +114,15 @@ function animate(){
 }
 
 animate();
+
+    const menuBtn = document.querySelector(".menu-btn");
+    let menuOpen = false;
+    menuBtn.addEventListener('click', () => {
+      if(!menuOpen){
+        menuBtn.classList.add('open');
+        menuOpen = true;
+      }else{
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+      }
+    })
