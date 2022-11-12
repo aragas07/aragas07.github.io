@@ -70,6 +70,10 @@
     }
 
     @media only screen and (max-width:640px) {
+        #header{
+            position: sticky!important;
+            top: 0;
+        }
         .nav-items {
             position: fixed!important;
             display: inline-block;
@@ -376,6 +380,7 @@
         display: none;
         justify-content: center;
         align-items: center;
+        top: 10px;
         width: 25px;
         height: 25px;
         cursor: pointer;
