@@ -1,4 +1,4 @@
-const nav = document.getElementById("navigation"),
+const header = document.getElementById("header"),
 svg = document.getElementById("svg"),
 home = document.getElementById('myinfo'),
 about = document.getElementById('about'),
@@ -20,14 +20,14 @@ window.onscroll = function(){
     
     if(this.screen.width < 641) bo = false;
     else bo = true;
-    document.querySelectorAll(".nav-items a").forEach(function(i){
-        i.className="";
-    })
     section.forEach(function(e){
         s = e.getBoundingClientRect();
         if(s.top < window.innerHeight/1.5 && s.top > -window.innerHeight/2 && e.id != "myinfo" && e.id != ""){
             const theId = "a-"+e.id;
             const el = document.querySelector(`#${CSS.escape(theId)}`);
+            document.querySelectorAll(".nav-items a").forEach(function(i){
+                i.className = '';
+            })
             el.className = "active";
         }
     })
@@ -35,7 +35,7 @@ window.onscroll = function(){
         var compute = (rectbottom.top/recttop.bottom),
         per = compute * 100;
         n1 = 100-per;
-        if(per >= 0 && bo){
+        if(per >= 0){
             str = per+" "+n1+"";
             text.forEach(function (e){
                 e.style.strokeDasharray = str;
@@ -50,11 +50,11 @@ window.onscroll = function(){
     }
     view(recttop,rectbottom);
     if(document.documentElement.scrollTop > 150){
-        nav.style.backgroundColor = "#1e1e27";
-        if(bo) nav.style.padding = "0";
+        header.style.backgroundColor = "#1e1e27";
+        if(bo) header.style.padding = "0";
     }else{
-        nav.style.backgroundColor = "#50505000";
-        if(bo) nav.style.padding = "10px 0 0 0";
+        header.style.backgroundColor = "#50505000";
+        if(bo) header.style.padding = "10px 0 0 0";
     }
 }
 let spots = [];
@@ -115,14 +115,17 @@ function animate(){
 
 animate();
 
-    const menuBtn = document.querySelector(".menu-btn");
-    let menuOpen = false;
-    menuBtn.addEventListener('click', () => {
-      if(!menuOpen){
+const menuBtn = document.querySelector(".menu-btn"),
+navigation = document.querySelector(".nav-items"); 
+let menuOpen = false;
+menuBtn.addEventListener('click', () => {
+    if(!menuOpen){
         menuBtn.classList.add('open');
+        navigation.classList.add('nav-items-show');
         menuOpen = true;
-      }else{
+    }else{
         menuBtn.classList.remove('open');
+        navigation.classList.remove('nav-items-show');
         menuOpen = false;
-      }
-    })
+    }
+})
