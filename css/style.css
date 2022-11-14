@@ -74,6 +74,15 @@
             position: sticky!important;
             top: 0;
         }
+
+        text:nth-child(even){
+            font-size: 6vw!important;
+        }
+
+        text:nth-child(odd){
+            font-size: 8vw!important;
+        }
+
         .nav-items {
             position: fixed!important;
             display: inline-block;

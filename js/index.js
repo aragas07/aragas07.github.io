@@ -39,7 +39,7 @@ window.onscroll = function(){
             str = per+" "+n1+"";
             text.forEach(function (e){
                 e.style.strokeDasharray = str;
-                e.style.fill = 'rgba(204,204,204,'+(compute - (1 - compute))+')';
+                e.style.fill = 'rgba(204,204,204,'+(compute - (1 - (compute/3)))+')';
                 if(per < 55){
                     e.style.opacity = compute+'';
                 }else{
@@ -70,6 +70,16 @@ window.addEventListener('mousemove', function(event){
     for(let i = 0; i < 3; i++){
         spots.push(new Particle());
     }
+});
+
+window.addEventListener("touchmove", e => {
+    [...e.changedTouches].forEach(touch => {
+        mouse.x = touch.pageX;
+        mouse.y = touch.pageY;
+        for(let i = 0; i < 3; i++){
+            spots.push(new Particle());
+        }
+    })
 });
 
 class Particle{
@@ -129,3 +139,9 @@ menuBtn.addEventListener('click', () => {
         menuOpen = false;
     }
 })
+const script = document.createElement("script");
+script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
+document.head.appendChild(script);
+const aboutjs = document.createElement("script");
+aboutjs.src = 'js/about.js';
+document.body.appendChild(aboutjs);

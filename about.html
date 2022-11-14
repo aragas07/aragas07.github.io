@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/about.css">
-</head>
-<body>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.406 50.834"><polygon fill-rule="evenodd" clip-rule="evenodd" fill="#20201E" points="59.2,0 46,0 36.7,7.3 27.4,0 14.2,0 0,14.7 36.7,50.8 73.4,14.7"/></svg>
-  <div class="menu-btn">
-    <div class="menu-btn_burger"></div>
-  </div>
+<html>
 
-  <script>
-    const menuBtn = document.querySelector(".menu-btn");
-    let menuOpen = false;
-    menuBtn.addEventListener('click', () => {
-      console.log("clicked");
-      if(!menuOpen){
-        menuBtn.classList.add('open');
-        menuOpen = true;
-      }else{
-        menuBtn.classList.remove('open');
-        menuOpen = false;
-      }
-    })
-  </script>
+<head>
+	<title>Getting Clients IP</title>
+	<style>
+	p, h1 {
+		color: green;
+	}
+	</style>
+
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	
+	<script>
+	
+      
+				
+	$.get("https://ipinfo.io", function(data) {
+		
+    console.log(data);
+		$("#gfg").html(data.ip+" "+data.city);
+	},'json')
+	</script>
+</head>
+
+<body>
+	<center>
+		<h1>GeeksforGeeks</h1>
+		<h3>Public IP Address of user is:</h3>
+		<p id="gfg"></p>
+
+	</center>
 </body>
+
 </html>
