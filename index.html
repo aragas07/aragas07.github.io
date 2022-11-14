@@ -7,8 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aragas07.github.io</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobileview.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
 </head>
 <body>
+    <div id="header">
+        <div class="img-cont">
+            <img src="css/latestlogo.png">
+            <div class="justify">
+                <a class="h-title">rgie C. Ragas</a>
+            </div>
+        </div>
+        <div class="menu-btn">
+            <div class="menu-btn_burger"></div>
+        </div>
+        <div class="nav-items">
+            <a id="a-home" href="#home" class="active">Home</a>
+            <a id="a-about" href="#about">About</a>
+            <a id="a-skills" href="#skills">My Skills</a>
+            <a id="a-work" href="#work">Work</a>
+            <a id="a-contact" href="#contact">Contact</a>
+        </div>
+    </div>
     <div class="canvas">
         <canvas id="canvas"></canvas>
     </div>
@@ -21,27 +41,37 @@
             <text style="font-size: 3vw" x="50%" y="80%" text-anchor="middle">Web Developer</text>
        </svg>
     </section>
-    <div id="header">
-        <div class="img-cont">
-            <img src="css/latestlogo.png">
-            <div class="col justify">
-                <a class="h-title">rgie C. Ragas</a>
+    <section id="home"></section>
+    <section id="about">
+        <div class="row">
+            <div ></div>
+            <div class="col-50" id="myCanvasContainer">
+                <canvas id="myCanvas" width="500" height="500">
+                    <ul id="tags">
+                        <li> <a data-weight="25" href="https://en.wikipedia.org/wiki/HTML" target="_blank">HTML</a></li>
+                        <li><a data-weight="25" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS</a></li>
+                        <li><a data-weight="25" href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a></li>
+                        <li><a data-weight="24" href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a></li>
+                        <li><a data-weight="14" href="https://en.wikipedia.org/wiki/JSON" target="_blank">JSON</a></li>
+                        <li><a data-weight="14" href="https://en.wikipedia.org/wiki/AngularJS" target="_blank">Angular</a></li>
+                        <li><a data-weight="14" href="https://en.wikipedia.org/wiki/AngularJS" target="_blank">Java</a></li>
+                        <li><a data-weight="14" href="https://en.wikipedia.org/wiki/AngularJS" target="_blank">Kotlin</a></li>
+                        <li><a data-weight="14" href="https://en.wikipedia.org/wiki/AngularJS" target="_blank">C#</a></li>
+                        <li><a data-weight="14" href="https://en.wikipedia.org/wiki/AngularJS" target="_blank">Vue</a></li>
+                        <li><a data-weight="26" href="https://en.wikipedia.org/wiki/WordPress" target="_blank">Wordpress</a></li>
+                        <li><a data-weight="21" href="https://en.wikipedia.org/wiki/Node.js" target="_blank">Node JS</a></li>
+                        <li><a data-weight="17" href="https://en.wikipedia.org/wiki/Git" target="_blank">Git</a></li>
+                        <li><a data-weight="23" href="https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)" target="_blank">Bootstrap</a></li>
+                        <li><a data-weight="24" href="https://reactjs.org/" target="_blank">ReactJS</a></li>
+                        <li><a data-weight="12" href="https://en.wikipedia.org/wiki/JQuery" target="_blank">jQuery</a></li>
+                        <li><a data-weight="19" href="http://mongoosejs.com/" target="_blank">SQL</a></li>
+                        <li><a data-weight="19" href="http://gulpjs.com/" target="_blank">Gulp</a></li>
+                        <li><a data-weight="19" href="https://www.npmjs.com/" target="_blank">npm</a></li>
+                    </ul>
+                </canvas>
             </div>
         </div>
-        
-        <div class="menu-btn">
-            <div class="menu-btn_burger"></div>
-        </div>
-        <div class="nav-items">
-            <a id="a-home" href="#home" class="active">Home</a>
-            <a id="a-about" href="#about">About</a>
-            <a id="a-skills" href="#skills">My Skills</a>
-            <a id="a-work" href="#work">Work</a>
-            <a id="a-contact" href="#contact">Contact</a>
-        </div>
-    </div>
-    <section id="home"></section>
-    <section id="about"></section>
+    </section>
     <section id="skills">
         <!-- <div class="size-auto">
             <img src="css/profile.png">
@@ -66,6 +96,6 @@
         </div>
     </section>
     <script src="js/index.js"></script>
-
+    <script src="js/canvasanimation.js"></script>
 </body>
 </html>

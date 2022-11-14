@@ -1,14 +1,11 @@
-const delta = 6;
-let startX;
-let startY;
-let moved = false;
-window.addEventListener('mousedown', function (event) {
-  startX = event.pageX;
-  startY = event.pageY;
-  console.log(startY);
-  moved = true;
-});
-
-window.addEventListener('mousemove',(e)=>{
-    console.log(moved);
+$(document).ready(function(){
+  $("#myCanvas").tagcanvas({
+    textColour: "#08fdd8",
+    outlineColour: "transparent",
+    reverse: false,
+    depth: 0.7,
+    maxSpeed: 0.03,
+    weight: true,
+  }, "tags");
+  $("#myCanvasContainer");
 })

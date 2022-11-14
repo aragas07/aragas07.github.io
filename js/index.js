@@ -5,8 +5,24 @@ about = document.getElementById('about'),
 section = document.querySelectorAll("section");
 var n1 = 0, str ='';
 let bo = true;
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+
+const canvas = document.getElementById('canvas'),
+ctx = canvas.getContext('2d');
+
+$(document).ready(function(){
+    setTimeout(() => {
+        $("#header").css("opacity",'1');
+    }, 10);
+    $("#myCanvas").tagcanvas({
+      textColour: "#08fdd8",
+      outlineColour: "transparent",
+      reverse: false,
+      depth: 0.7,
+      maxSpeed: 0.03,
+      weight: true,
+    }, "tags");
+    $("#myCanvasContainer");
+  })
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 window.addEventListener('resize',function(){
@@ -34,14 +50,17 @@ window.onscroll = function(){
     function view(top, bottom) {
         var compute = (rectbottom.top/recttop.bottom),
         per = compute * 100;
-        n1 = 100-per;
-        if(per >= 0){
-            str = per+" "+n1+"";
+        reverse = 100-per;
+        var getHalf = per - reverse;
+        if(getHalf >= 0){
+            str = getHalf+" "+(100 - getHalf);
+            var opacity = getHalf/100;
             text.forEach(function (e){
                 e.style.strokeDasharray = str;
-                e.style.fill = 'rgba(204,204,204,'+(compute - (1 - (compute/3)))+')';
-                if(per < 55){
-                    e.style.opacity = compute+'';
+                console.log(opacity - (1 - (opacity)));
+                e.style.fill = 'rgba(204,204,204,'+(opacity - (1 - opacity))+')';
+                if(opacity < 1){
+                    e.style.opacity = opacity+'';
                 }else{
                     e.style.opacity = "1";
                 }
@@ -139,9 +158,10 @@ menuBtn.addEventListener('click', () => {
         menuOpen = false;
     }
 })
-const script = document.createElement("script");
-script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
-document.head.appendChild(script);
-const aboutjs = document.createElement("script");
-aboutjs.src = 'js/about.js';
-document.body.appendChild(aboutjs);
+
+// const script = document.createElement("script");
+// script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
+// document.head.appendChild(script);
+// const aboutjs = document.createElement("script");
+// aboutjs.src = 'js/about.js';
+// document.body.appendChild(aboutjs);
