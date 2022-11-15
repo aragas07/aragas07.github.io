@@ -7,7 +7,13 @@
         background-repeat: no-repeat;
         scroll-behavior: smooth;
         margin: 0;
-        
+    }
+
+    *, *::after, *::before{
+        -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box;    
+        box-sizing: border-box;  
+        transition: 1s;
     }
 
     #myinfo{
@@ -15,6 +21,23 @@
         align-items: center;
         justify-content: center;
         position: fixed;
+        padding: 0!important;
+    }
+
+    .content{
+        text-align: justify;
+    }
+
+    .content-header{
+        font-size: 30px;
+    }
+
+    .content p{
+        font-size: 23px;
+    }
+
+    .section-title{
+        font-size: 30px;
     }
 
     .nav-items{
@@ -41,7 +64,7 @@
         opacity: 0;
         position: absolute;
         left: 50%;
-        top: -3%;
+        top: 1px;
         width: 100%;
         height: 100%;
         transform: translateX(-50%) translateY(-5%) scale(0.8);
@@ -54,19 +77,19 @@
         border-bottom: 4px solid #97c9e6;
         z-index: 1;
     }
+
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
     
     @media only screen and (min-width:641px){
-        .nav-items a:hover:before{
+        .nav-items a:hover:before,.nav-items a:hover:after{
             opacity: 1;
             animation-name: navanimation;
             animation-duration: 1s;
         }
     
-        .nav-items a:hover:after{
-            opacity: 1;
-            animation-name: navanimation;
-            animation-duration: 1s;
-        }
         .col-75{
             flex: 0 0 75%;
             width: 75%;
@@ -90,17 +113,21 @@
             top: 45%;
         }
         100%{
-            top: -3%;
+            top: 1px;
             height: 100%;
             color: #fff;
         }
     }
 
+    .late-display{
+        display: none;
+    }
+
     #header{
         position: fixed;
         display: flex;
-        align-items: center;
         opacity: 0;
+        align-items: center;
         height: 55px;
         top: 0;
         padding: 10px 0 0 0;
@@ -108,7 +135,7 @@
         transition: 0.5s;
         z-index: 100;
     }
-
+    
     .justify{
         display: flex;
         justify-content: center;
@@ -177,10 +204,18 @@
     }
 
     section{
-        display: flex;
-        justify-content: center;
         height: 100vh;
         width: 100%;
+        color: #bbb;
+        padding: 60px 20px;
+    }
+    
+    .p-1{
+        padding: 0.5em;
+    }
+
+    .pr-2{
+        padding-right: 2rem;
     }
 
     .row{
@@ -352,7 +387,7 @@
         height: 25px;
         cursor: pointer;
         transition: all .5s ease-in-out;
-        right: 10px;
+        right: 15px;
     }
 
     .menu-btn_burger{

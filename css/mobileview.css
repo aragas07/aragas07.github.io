@@ -5,12 +5,28 @@
             width: 100%;
         }
 
+        .pr-0{
+            padding-right: 0!important;
+        }
+
         text:nth-child(even){
             font-size: 6vw!important;
         }
 
         text:nth-child(odd){
             font-size: 8vw!important;
+        }
+        section{
+            padding: 40px 20px;
+        }
+
+        .content-header{
+            font-size: 25px;
+        }
+
+        .content p{
+            font-size: 15px;
+            letter-spacing: 2px;
         }
 
         .nav-items {

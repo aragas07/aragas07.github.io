@@ -11,8 +11,9 @@ ctx = canvas.getContext('2d');
 
 $(document).ready(function(){
     setTimeout(() => {
-        $("#header").css("opacity",'1');
-    }, 10);
+        $(".late-display").css("display","block");
+        $("#header").css("opacity","1");
+    },2700);
     $("#myCanvas").tagcanvas({
       textColour: "#08fdd8",
       outlineColour: "transparent",
@@ -51,21 +52,20 @@ window.onscroll = function(){
         var compute = (rectbottom.top/recttop.bottom),
         per = compute * 100;
         reverse = 100-per;
+        console.log(compute);
         var getHalf = per - reverse;
-        if(getHalf >= 0){
-            str = getHalf+" "+(100 - getHalf);
-            var opacity = getHalf/100;
-            text.forEach(function (e){
-                e.style.strokeDasharray = str;
-                console.log(opacity - (1 - (opacity)));
-                e.style.fill = 'rgba(204,204,204,'+(opacity - (1 - opacity))+')';
-                if(opacity < 1){
-                    e.style.opacity = opacity+'';
-                }else{
-                    e.style.opacity = "1";
-                }
-            });
-        }
+        str = getHalf+" "+(100 - getHalf);
+        var opacity = getHalf/100;
+        text.forEach(function (e){
+            e.style.strokeDasharray = str;
+            console.log(opacity);
+            e.style.fill = 'rgba(204,204,204,'+(opacity - (1 - opacity))+')';
+            if(opacity < 1){
+                e.style.opacity = opacity+'';
+            }else{
+                e.style.opacity = "1";
+            }
+        });
     }
     view(recttop,rectbottom);
     if(document.documentElement.scrollTop > 150){
