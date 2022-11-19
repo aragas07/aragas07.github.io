@@ -6,15 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
+    <style>html,
+        body {
+          height: 100%;
+        }
+        
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: black;
+        }
+        
+        .newspaper {
+          padding: 0.5rem;
+          text-transform: uppercase;
+          text-align: center;
+          background-color: white;
+          cursor: pointer;
+        }
+        </style>
 </head>
 <body>
-    <button id="btn">Button</button>
+    <div class="newspaper">Spinning newspaper<br />causes dizziness</div>
+
     <script>
-        $(function(){
-            navigator.geolocation.getCurrentPosition(function(position){
-                console.log(position);
-            })
-        })
+        const newspaperSpinning = [
+  { width: '100px' },
+  { width: '1000px' }
+];
+
+const newspaperTiming = {
+  duration: 2000,
+  iterations: 1,
+}
+
+const newspaper = document.querySelector(".newspaper");
+
+newspaper.addEventListener('click', () => {
+  newspaper.animate(newspaperSpinning, newspaperTiming);
+});
     </script>
 </body>
 </html>

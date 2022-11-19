@@ -3,7 +3,7 @@ svg = document.getElementById("svg"),
 home = document.getElementById('myinfo'),
 about = document.getElementById('about'),
 section = document.querySelectorAll("section");
-var n1 = 0, str ='';
+var n1 = 0, str ='', stock = '';
 let bo = true;
 
 const canvas = document.getElementById('canvas'),
@@ -37,7 +37,7 @@ window.onscroll = function(){
     
     if(this.screen.width < 641) bo = false;
     else bo = true;
-    section.forEach(function(e){
+    section.forEach(e=>{
         s = e.getBoundingClientRect();
         if(s.top < window.innerHeight/1.5 && s.top > -window.innerHeight/2 && e.id != "myinfo" && e.id != ""){
             const theId = "a-"+e.id;
@@ -46,19 +46,24 @@ window.onscroll = function(){
                 i.className = '';
             })
             el.className = "active";
+            if(e.id == 'skills' && stock != 'skills'){
+                stock = 'skills';
+                $("footer div").each(function(){
+                    $(this).animate({width:$(this).attr("data-width")},1000);
+                    console.log("Example");
+                })
+            }
         }
     })
-    function view(top, bottom) {
+    function view() {
         var compute = (rectbottom.top/recttop.bottom),
         per = compute * 100;
         reverse = 100-per;
-        console.log(compute);
         var getHalf = per - reverse;
         str = getHalf+" "+(100 - getHalf);
         var opacity = getHalf/100;
         text.forEach(function (e){
             e.style.strokeDasharray = str;
-            console.log(opacity);
             e.style.fill = 'rgba(204,204,204,'+(opacity - (1 - opacity))+')';
             if(opacity < 1){
                 e.style.opacity = opacity+'';
@@ -67,7 +72,7 @@ window.onscroll = function(){
             }
         });
     }
-    view(recttop,rectbottom);
+    view();
     if(document.documentElement.scrollTop > 150){
         header.style.backgroundColor = "#1e1e27";
         if(bo) header.style.padding = "0";

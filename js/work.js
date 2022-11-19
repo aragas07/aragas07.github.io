@@ -1,11 +1,5 @@
-$(document).ready(function(){
-  $("#myCanvas").tagcanvas({
-    textColour: "#08fdd8",
-    outlineColour: "transparent",
-    reverse: false,
-    depth: 0.7,
-    maxSpeed: 0.03,
-    weight: true,
-  }, "tags");
-  $("#myCanvasContainer");
+$(function(){
+  $("footer div").each(function(){
+    $(this).animate({width:$(this).attr("data-width")},1000);
+  })
 })
