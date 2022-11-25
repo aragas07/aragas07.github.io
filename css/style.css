@@ -61,6 +61,14 @@
         font-weight: 550;
     }
 
+    a{
+        text-decoration: none;
+    }
+
+    .mb-1{
+        margin-bottom: 1rem;
+    }
+
     .nav-items a:before, .nav-items a:after{
         opacity: 0;
         position: absolute;
@@ -110,6 +118,53 @@
             flex: 0 0 40%;
             width: 40%;
         }
+
+        .col-60{
+            flex: 0 0 60%;
+            width: 60%;
+        }
+    }
+    
+    .col-100{
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .form-control{
+        padding: 10px;
+        background-color: #333;
+        border: none;
+        width: 100%;
+        outline: none;
+        color: #ddd;
+        font-size: 19px;
+    }
+    
+
+    textarea{
+        resize: none;
+        height: 180px;
+    }
+
+    .btn{
+        background-color: #000;
+        border: 1px solid cyan;
+        color: cyan;
+        padding: 7px 19px;
+        font-size: 19px;
+
+    }
+
+    .btn:hover {
+        background-color: cyan;
+        color: black;
+    }
+
+
+    .justify{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     @keyframes navanimation {
@@ -488,7 +543,8 @@
     }
 
     #contact{
-        padding: 0 0 0 40px!important;
+        padding: 0!important;
+        position: absolute;
     }
 
     .pt-60p{

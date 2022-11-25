@@ -1,6 +1,6 @@
     @media only screen and (max-width:640px) {
 
-        .col-75, .col-50, .col-25, .col-10, .col-40{
+        .col-75, .col-50, .col-25, .col-10, .col-40, .col-60{
             flex: 0 0 100%;
             width: 100%;
         }
@@ -19,6 +19,7 @@
         section{
             padding: 40px 20px;
         }
+
 
         .content-header{
             font-size: 25px;
@@ -44,6 +45,10 @@
 
         text{
             text-shadow: 0 0 2px #3bf2ff!important;
+        }
+
+        #contact{
+            padding: 0!important;
         }
 
         .nav-items-show{
