@@ -47,10 +47,6 @@
             text-shadow: 0 0 2px #3bf2ff!important;
         }
 
-        #contact{
-            padding: 0!important;
-        }
-
         .nav-items-show{
             transform: scaleY(1);
             transform-origin: top center;
