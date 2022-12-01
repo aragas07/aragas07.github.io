@@ -337,11 +337,18 @@ section{
 }
 .arrow{
     position: absolute;
-    width: 300px;
     height: 45px;
     margin-left: 40px;
     margin-top: 15px;
     animation: arrow 3s infinite linear;
+}
+
+.arrow_d_width{
+    width: 300px;
+}
+
+.arrow_m_width{
+    width: 150px;
 }
 
 @keyframes arrow{
@@ -355,33 +362,71 @@ section{
 }
 .arrow_line{
     position: absolute;
-    width: 280px;
     margin-left: 47px;
     margin-top: 36px;
     z-index: 1;
     background-color: #555468;
-    height: 4px;
     border-radius: 5px;
 }
 
+.arrowline_d_width{
+    width: 280px;
+    height: 4px;
+}
+
+.arrowline_m_width{
+    width: 140px;
+    height: 2px;
+}
 
 .arrow_head{
     position: absolute;
-    right: 13px;
     background-image: linear-gradient(-45deg, #876f6b 0%, #876f6b, transparent 50%);
+    transform: rotateZ(-45deg);
+}
+
+.d_arrow_head{
+    right: 13px;
+    top: 8px;
     width: 30px;
     height: 30px;
-    top: 8px;
-    transform: rotateZ(-45deg);
+}
+
+.m_arrow_head{
+    right: 3px;
+    top: 16px;
+    width: 15px;
+    height: 15px;
 }
 
 .arrow_top, .arrow_bottom{
     position: absolute;
     left: 5px;
-    width: 50px;
-    height: 21px;
     background-image: linear-gradient(to right, #876f6b 0%, #876f6b 70%, #500606 70%);
     transform: skewX(30deg);
+}
+
+.d_arrowtop{
+    width: 50px;
+    height: 21px;
+}
+
+.m_arrowtop{
+    top: 13px;
+    width: 25px;
+    height: 10px;
+}
+
+.m_arrowbottom{
+    width: 25px;
+    height: 10px;
+    top: 23px;
+}
+
+.d_arrowbottom{
+    width: 50px;
+    height: 21px;
+    bottom: 0;
 }
 
 .arrow_bottom{
@@ -392,7 +437,7 @@ section{
 
 .cont-line{
     position: absolute;
-    width: 30%;
+    width: 350px;
     overflow: hidden;
     height: 80px;
 }

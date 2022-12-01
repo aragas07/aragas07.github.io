@@ -26,9 +26,46 @@ $(document).ready(function(){
   })
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+let cont = document.querySelector(".container"),
+arrowline = document.querySelector("#arrowline"),
+arrow = document.querySelector("#arrow"),
+arrowhead = document.querySelector("#arrowhead"),
+arrowtop = document.querySelector("#arrowtop"),
+arrowbottom = document.querySelector("#arrowbottom"),
+contline = document.querySelector(".cont-line");
+if(cont.offsetWidth < 433){
+    arrowline.className = "arrow_line arrowline_m_width";
+    arrow.className = "arrow arrow_m_width";
+    arrowhead.className = "arrow_head m_arrow_head";
+    arrowtop.className = "arrow_top m_arrowtop";
+    arrowbottom.className = "arrow_bottom m_arrowbottom";
+    contline.style.width = '270px';
+}else{
+    arrowline.className = "arrow_line arrowline_d_width";
+    arrow.className = "arrow arrow_d_width";
+    arrowhead.className = "arrow_head d_arrow_head";
+    arrowtop.className = "arrow_top d_arrowtop";
+    arrowbottom.className = "arrow_bottom d_arrowbottom";
+    contline.style.width = '350px';
+}
 window.addEventListener('resize',function(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    if(cont.offsetWidth < 433){
+        arrowline.className = "arrow_line arrowline_m_width";
+        arrow.className = "arrow arrow_m_width";
+        arrowhead.className = "arrow_head m_arrow_head";
+        arrowtop.className = "arrow_top m_arrowtop";
+        arrowbottom.className = "arrow_bottom m_arrowbottom";
+        contline.style.width = '270px';
+    }else{
+        arrowline.className = "arrow_line arrowline_d_width";
+        arrow.className = "arrow arrow_d_width";
+        arrowhead.className = "arrow_head d_arrow_head";
+        arrowtop.className = "arrow_top d_arrowtop";
+        arrowbottom.className = "arrow_bottom d_arrowbottom";
+        contline.style.width = '350px';
+    }
 })
 window.onscroll = function(){
     const text = document.querySelectorAll("text"),
@@ -50,7 +87,6 @@ window.onscroll = function(){
                 stock = 'skills';
                 $("footer div").each(function(){
                     $(this).animate({width:$(this).attr("data-width")},1000);
-                    console.log("Example");
                 })
             }
         }
