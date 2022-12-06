@@ -1,5 +1,5 @@
-$(function(){
-  $("footer div").each(function(){
-    $(this).animate({width:$(this).attr("data-width")},1000);
-  })
+const app = Vue.createApp({
+  template: '<h1>Hello World</h1>',
 })
+
+app.mount("#app")

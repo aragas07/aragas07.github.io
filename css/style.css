@@ -363,7 +363,6 @@ section{
 .arrow_line{
     position: absolute;
     margin-left: 47px;
-    margin-top: 36px;
     z-index: 1;
     background-color: #555468;
     border-radius: 5px;
@@ -371,11 +370,13 @@ section{
 
 .arrowline_d_width{
     width: 280px;
+    margin-top: 36px;
     height: 4px;
 }
 
 .arrowline_m_width{
     width: 140px;
+    margin-top: 37px;
     height: 2px;
 }
 

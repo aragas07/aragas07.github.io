@@ -33,6 +33,7 @@ arrowhead = document.querySelector("#arrowhead"),
 arrowtop = document.querySelector("#arrowtop"),
 arrowbottom = document.querySelector("#arrowbottom"),
 contline = document.querySelector(".cont-line");
+console.log(cont.innerWidth);
 if(cont.offsetWidth < 433){
     arrowline.className = "arrow_line arrowline_m_width";
     arrow.className = "arrow arrow_m_width";
@@ -40,13 +41,6 @@ if(cont.offsetWidth < 433){
     arrowtop.className = "arrow_top m_arrowtop";
     arrowbottom.className = "arrow_bottom m_arrowbottom";
     contline.style.width = '270px';
-}else{
-    arrowline.className = "arrow_line arrowline_d_width";
-    arrow.className = "arrow arrow_d_width";
-    arrowhead.className = "arrow_head d_arrow_head";
-    arrowtop.className = "arrow_top d_arrowtop";
-    arrowbottom.className = "arrow_bottom d_arrowbottom";
-    contline.style.width = '350px';
 }
 window.addEventListener('resize',function(){
     canvas.width = window.innerWidth;
