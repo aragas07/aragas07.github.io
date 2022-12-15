@@ -6,33 +6,303 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="js/jquery.min.js"></script>
   <link rel="stylesheet" href="css/work.css">
-  <title>Document</title>
+  <script src="js/work.js"></script>
+  <title>WP_v2</title>
 </head>
 <body>
+  <div class="header">
+    <img src="img/dorsu-cloud-space.png" class="logo">
+  </div>
   <div class="panel">
-    <div class="content">
-      <textarea name="" oninput="auto_grow(this)" placeholder="Add title" id="title"></textarea>
-      <div class="cont">
-        <div class="components">
-          <div class="component plus"></div>
-          <div class="minus"></div>
-          <div class="close"></div>
-          
-        </div>
-        <div class="section">
-          <div class="element">
-            <di class="plus"></di>
+    <div class="container">
+      <div id="close-comp" class="close close-black f-right"></div>
+      <div class="row">
+        <div class="col-50">
+          <div id="img" class="comp editor-view">
+            <img src="img/landscape.png" alt="" srcset="">
+            <label for="">IMAGE</label>
           </div>
-          <div class="element">
-            <di class="plus"></di>
+        </div>
+        <div class="col-50">
+          <div id="text" class="comp editor-view">
+            <img src="img/font.png" alt="" srcset="">
+            <label for="">TEXT</label>
+          </div>
+        </div>
+        <div class="col-50">
+          <div id="video" class="comp editor-view">
+            <img src="img/play.png" alt="" srcset="">
+            <label for="">VIDEO</label>
+          </div>
+        </div>
+        <div class="col-50">
+          <div id="custom" class="comp editor-view">
+            <img src="img/html.png" alt="" srcset="">
+            <label for="">CUSTOM</label>
           </div>
         </div>
       </div>
+      <div class="editor">
+        <div class="img-editor in-det">
+          <button class="btn">Upload</button>
+          <button style="margin-top: 3px" class="btn"> Choose from gallery</button>
+        </div>
+        <div class="custom-editor">
+          <div class="group">
+            <label>Custom HTML</label>
+            <textarea id="customhtml" style="height: 140px; min-height:140px" oninput="auto_grow(this)"></textarea>
+          </div>
+        </div>
+        <div class="styling">
+          <div class="style-head">
+            <button id="styling" class="col-50 btn-active btn-styling">Style</button>
+            <button id="advance" class="col-50 btn-styling">Advanced</button>
+          </div>
+          <div class="style-container">
+            <div class="group">
+              <div class="item-justify">
+                <label>Shadow</label>
+                <input type="checkbox" id="shadow">
+              </div>
+              <div class="card">
+                <div class="group-cont item-justify">
+                  <label>Color</label>
+                  <input type="color" class="shadow" id="shadow-color">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Size</label>
+                  <input type="number" placeholder="px" class="inp-number shadow" id="shadow-size">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Radius</label>
+                  <input type="number" placeholder="px" class="inp-number shadow" id="shadow-radius">
+                </div>
+                <div class="group-cont">
+                  <label>Horizontal</label>
+                  <input type="range" class="shadow" id="horizontal-range">
+                </div>
+                <div class="group-cont">
+                  <label>Vertical</label>
+                  <input type="range" class="shadow" id="vertical-range">
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <div class="item-justify">
+                <label>Border</label>
+                <input type="checkbox" id="border">
+              </div>
+              <div class="card">
+                <div class="group-cont item-justify">
+                  <label>Color</label>
+                  <input type="color" class="border" id="border-color">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Radius</label>
+                  <input type="number" id="b-radius" class="inp-number border">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Line width</label>
+                  <input type="number" id="b-width" class="inp-number border">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Line style</label>
+                  <select style="width: 100%" id="line-style" class="border">
+                    <option>Dotted</option>
+                    <option>Dashed</option>
+                    <option>Solid</option>
+                    <option>Groove</option>
+                    <option>Ridge</option>
+                    <option>Inset</option>
+                    <option>Outset</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <label>Size</label>
+              <div class="card">
+                <div class="group-cont">
+                  <label>Height</label>
+                  <div class="item-justify">
+                    <input type="range" id="height">
+                    <input type="number"placeholder="%" id="" class="inp-number">
+                  </div>
+                </div>
+                <div class="group-cont">
+                  <label>Width</label>
+                  <div class="item-justify">
+                    <input type="range" id="width">
+                    <input type="number" placeholder="%" id="" class="inp-number">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display: none" class="advance-container">
+            <div class="group">
+              <label>Margin</label>
+              <div class="card">
+                <div class="group-cont item-justify">
+                  <label>Top</label>
+                  <input type="number" placeholder="px" id="mt" class="inp-number">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Bottom</label>
+                  <input type="number" placeholder="px" id="mb" class="inp-number">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Left</label>
+                  <input type="number" placeholder="px" id="ml" class="inp-number">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Right</label>
+                  <input type="number" placeholder="px" id="mr" class="inp-number">
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <label>Padding</label>
+              <div class="card">
+                <div class="group-cont item-justify">
+                  <label>Top</label>
+                  <input type="number" placeholder="px" id="" class="inp-number">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Bottom</label>
+                  <input type="number" placeholder="px" id="" class="inp-number">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Left</label>
+                  <input type="number" placeholder="px" id="" class="inp-number">
+                </div>
+                <div class="group-cont item-justify">
+                  <label>Right</label>
+                  <input type="number" placeholder="px" id="" class="inp-number">
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <label>Motion effect</label>
+              <div class="card">
+                <div class="group-cont">
+                  <label>Entrance animation</label>
+                  <select style="width: 100%" id="">
+                    <option>none</option>
+                    <option>Fade In</option>
+                    <option>Fade In down</option>
+                    <option>Fade In Up</option>
+                    <option>Fade In Left</option>
+                    <option>Fade In Right</option>
+                    <option>Bounce In</option>
+                    <option>Bounce In Down</option>
+                    <option>Bounce In Up</option>
+                    <option>Bound In Right</option>
+                  </select>
+                </div>
+                <div class="group-cont">
+                  <label>Exit animation</label>
+                  <select style="width: 100%" id="">
+                    <option>none</option>
+                    <option>Fade Out</option>
+                    <option>Fade Out Down</option>
+                    <option>Fade Out Up</option>
+                    <option>Fade Out Left</option>
+                    <option>Fade Out Right</option>
+                    <option>Bounce Out</option>
+                    <option>Bounce Out Down</option>
+                    <option>Bounce Out Up</option>
+                    <option>Bound Out Right</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <label>Transform</label>
+              <div class="card">
+                <div class="item-justify">
+                  <button class="transform card-btn card-btn-active">Normal</button>
+                  <button class="transform card-btn">Hover</button>
+                </div>
+                <div class="group-cont">
+                  <label>Rotate</label>
+                  <div class="item-justify">
+                    <input type="range" id="">
+                    <input type="number" placeholder="deg" id="" class="inp-number">
+                  </div>
+                </div>
+                <div class="group-cont">
+                  <label>Skew</label>
+                  <div class="item-justify">
+                    <input type="range" id="">
+                    <input type="number" placeholder="deg" id="" class="inp-number">
+                  </div>
+                </div>
+                <div class="group-cont">
+                  <label>Scale</label>
+                  <div class="item-justify">
+                    <input type="range" id="">
+                    <input type="number"  id="" class="inp-number">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <textarea oninput="auto_grow(this)" placeholder="Add title" id="title"></textarea>
       <button id="add-section">+</button>
     </div>
     <div class="sidebar">
+      <div class="group">
+        <button class="btn-border-primary">Save</button>
+        <button class="btn-border-danger">Move to trash</button>
+      </div>
+      <div class="group">
+        <label>Summary</label>
+        <div class="card">
+          <div class="group-cont item-justify">
+            <label>Visibility</label>
+            <a href="#">Public</a>
+          </div>
+          <div class="group-cont item-justify">
+            <label>Publish</label>
+            <a href="#">Immediately</a>
+          </div>
+          <div class="group-cont item-justify">
+            <label>Author</label>
+            <a href="#">aragas07</a>
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <label>Preview</label>
+        <div class="card">
+          <div class="group-cont item-justify">
+            <label>Desktop</label>
+            <input type="checkbox" name="" id="">
+          </div>
+          <div class="group-cont item-justify">
+            <label>Tabket</label>
+            <input type="checkbox" name="" id="">
+          </div>
+          <div class="group-cont item-justify">
+            <label>Mobile</label>
+            <input type="checkbox" name="" id="">
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <label>Featured image</label>
+        <div class="group-cont">
+          <img src="img/gal.jpg" style="width:100%">
+          <button class="btn-border-primary">Choose image</button>
+        </div>
+      </div>
     </div>
   </div>
-  <script src="js/work.js"></script>
 </body>
 </html>
