@@ -55,6 +55,14 @@ body{
   float: right;
 }
 
+.f-left{
+  float: left;
+}
+
+.m-auto{
+  margin: auto;
+}
+
 .close-black, .close-black:after{
   background-color: #333!important;
 }
@@ -388,7 +396,7 @@ img {
 
 .group .card{
   background-color: white;
-  padding: 4px;
+  padding: 3px 7px;
   border-radius: 4px;
 }
 
