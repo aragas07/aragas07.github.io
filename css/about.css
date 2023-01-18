@@ -1,68 +1,74 @@
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body{
-    background-color: #272727;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .menu-btn{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    transition: all .5s ease-in-out;
-    border: 1px solid #fff;
-    z-index: 10;
-  }
+  box-sizing: border-box;
+}
 
-  .menu-btn_burger{
-    width: 50px;
-    height: 6px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(255,101,47,.2);
-    transition: all .5s ease-in-out;
-  }
+.form{
+  position: relative;
+}
 
-  .menu-btn_burger::before, .menu-btn_burger::after{
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 6px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(255,101,47,.2);
-    transition: all .5s ease-in-out;
-  }
+.row{
+  display: flex;
+}
 
-  .menu-btn_burger::before{
-    transform: translateY(-16px);
-  }
+.form-group{
+  margin: 4px;
+}
 
-  .menu-btn_burger::after{
-    transform: translateY(16px);
-  }
+.btn-primary{
+  padding: 5px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: aqua;
+  border: none;
+  font-size: 15px;
+}
 
-  .menu-btn.open .menu-btn_burger{
-    transform: rotateZ(45deg);
-    background: transparent;
-    box-shadow: none;
-  }
+label{
+  position: relative;
+}
 
-  .menu-btn.open .menu-btn_burger::before{
-    transform: rotate(90deg);
-  }
+input[type='text']{
+  width: 100%;
+  font-size: 15px;
+  padding: 5px;
+  margin-bottom: 7px;
+}
 
-  .menu-btn.open .menu-btn_burger::after{
-    transform: rotate(-180deg);
-  }
+#guide{
+  position: absolute;
+  display: flex;
+  box-shadow: 1px 100px 1px 4000px rgba(0, 0, 0, 0.397);
+  background-color: none;
+  border: 2px solid black;
+  height: 40px;
+  width: 400px;
+  border-radius: 3px;
+  transition: 1s;
+  z-index: 3;
+}
+
+.cover{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.next, .prev{
+  display: flex;
+  margin: 4px;
+  padding: 3px 7px;
+}
+
+.btn-cont{
+  position: absolute;
+  display: flex;
+  z-index: 10;
+}

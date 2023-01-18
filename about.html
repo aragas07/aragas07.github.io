@@ -1,37 +1,55 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<title>Getting Clients IP</title>
-	<style>
-	p, h1 {
-		color: green;
-	}
-	</style>
-
-	<script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-	</script>
-	
-	<script>
-	
-      
-				
-	$.get("https://ipinfo.io", function(data) {
-		
-    console.log(data);
-		$("#gfg").html(data.ip+" "+data.city);
-	},'json')
-	</script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/about.css">
 </head>
-
 <body>
-	<center>
-		<h1>GeeksforGeeks</h1>
-		<h3>Public IP Address of user is:</h3>
-		<p id="gfg"></p>
+	<div class="cover"></div>
+	<div id="guide"></div>
+	<div class="form">
+		<h1 id="title" class="tutor">This is my Example</h1>
+		<div class="row">
+			<div class="form-group tutor">
+				<label for="">First name</label>
+				<input type="text" name="" id="">
+			</div>
+			<div id="middlename" class="form-group tutor">
+				<label for="">Middle name</label>
+				<input type="text" name="" id="">
+			</div>
+		</div>
+		<button class="btn-primary">Submit</button>
+		<div class="btn-cont">
+			<button class="prev">Prev</button>
+			<button class="next">Next</button>
+		</div>
+	</div>
 
-	</center>
+	<script>
+		$(function(){
+			var num = 0;
+			animate(num);
+			$(".next").click(function(){
+				num++;
+				animate(num);
+			})
+			$(".prev").click(function(){
+				num--;
+				animate(num);
+			})
+			$(window).resize(function(){
+				animate(num);
+			})
+			function animate(i){
+				$("#guide").offset({top:$(".tutor").eq(i).offset().top-4,left:$(".tutor").eq(i).offset().left-4})
+				.css({"width":$(".tutor").eq(i).width()+8, "height":$(".tutor").eq(i).height()+8});
+			}
+		})
+	</script>
 </body>
-
 </html>
