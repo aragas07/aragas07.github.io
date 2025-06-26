@@ -22,8 +22,18 @@ $(document).ready(function(){
       maxSpeed: 0.03,
       weight: true,
     }, "tags");
-    $("#myCanvasContainer");
-  })
+    
+    $("#sendEmail").on("click", function() {
+        let parms = {
+            email: $("#email").val(),
+            title: $("#title").val(),
+            name: $("#name").val(),
+            message: $("#message").val()
+        }
+        emailjs.send("service_0hf3487","template_6jzydau",parms).then(alert("Mail sent Successfully"))
+    })
+  }
+)
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let cont = document.querySelector(".container"),

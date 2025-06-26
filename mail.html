@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email with SMTP.js</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Header section added to the body to provide introductory content -->
+    <header>
+        <h1>Email Sender App</h1> <!-- Main heading of the web page -->
+        <p>Click the button below to send an email using SMTP.js</p> <!-- Description of the page functionality -->
+    </header>
+    <input type="text" placeholder="Email" id="email">
+    <input type="text" placeholder="Title" id="title">
+    <input type="text" placeholder="Name" id="name">
+    <input type="text" placeholder="Message" id="message">
+    <button onclick="sendEmail()">Send Email</button>
+
+   
+    <script type="text/javascript">
+        (function(){
+        emailjs.init({
+            publicKey: "VQPwgoCwKzha5B3Mb",
+        });
+        })();
+
+        function sendEmail() {
+            let parms = {
+                email: document.getElementById("email").value,
+                title : document.getElementById("title").value,
+                name : document.getElementById("name").value,
+                message : document.getElementById("message").value
+            }
+            emailjs.send("service_0hf3487","template_6jzydau",parms).then(alert("Mail sent Successfully"))
+        }
+    </script>
+</body>
+</html>
