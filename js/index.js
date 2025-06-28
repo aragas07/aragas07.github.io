@@ -24,13 +24,28 @@ $(document).ready(function(){
     }, "tags");
     
     $("#sendEmail").on("click", function() {
-        let parms = {
-            email: $("#email").val(),
-            title: $("#title").val(),
-            name: $("#name").val(),
-            message: $("#message").val()
-        }
-        emailjs.send("service_0hf3487","template_6jzydau",parms).then(alert("Mail sent Successfully"))
+
+      fetch('https://aragas07.42web.io/messaging/message.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `name=${encodeURIComponent($("#name").val())}&email=${encodeURIComponent($("#email").val())}&subject=${encodeURIComponent($("#title").val())}&message=${encodeURIComponent($("#message").val())}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+        // let parms = {
+        //     email: $("#email").val(),
+        //     title: $("#title").val(),
+        //     name: $("#name").val(),
+        //     message: $("#message").val()
+        // }
+        // emailjs.send("service_0hf3487","template_6jzydau",parms).then(alert("Mail sent Successfully"))
     })
   }
 )
@@ -52,7 +67,7 @@ if(cont.offsetWidth < 433){
     arrowbottom.className = "arrow_bottom m_arrowbottom";
     contline.style.width = '270px';
 }
-window.addEventListener('resize',function(){
+window.addEventListener('resize',function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     if(cont.offsetWidth < 433){
@@ -71,14 +86,14 @@ window.addEventListener('resize',function(){
         contline.style.width = '350px';
     }
 })
-window.onscroll = function(){
+window.onscroll = function() {
     const text = document.querySelectorAll("text"),
     recttop = home.getBoundingClientRect(),
     rectbottom = about.getBoundingClientRect();
     
     if(this.screen.width < 641) bo = false;
     else bo = true;
-    section.forEach(e=>{
+    section.forEach(e => {
         s = e.getBoundingClientRect();
         if(s.top < window.innerHeight/1.5 && s.top > -window.innerHeight/2 && e.id != "myinfo" && e.id != ""){
             const theId = "a-"+e.id;
@@ -113,10 +128,10 @@ window.onscroll = function(){
         });
     }
     view();
-    if(document.documentElement.scrollTop > 150){
+    if(document.documentElement.scrollTop > 150) {
         header.style.backgroundColor = "#1e1e27";
         if(bo) header.style.padding = "0";
-    }else{
+    } else {
         header.style.backgroundColor = "#50505000";
         if(bo) header.style.padding = "10px 0 0 0";
     }
@@ -128,7 +143,7 @@ const mouse = {
     y: undefined
 }
 
-window.addEventListener('mousemove', function(event){
+window.addEventListener('mousemove', function(event) {
     mouse.x = event.x;
     mouse.y = event.y;
     for(let i = 0; i < 3; i++){
@@ -146,8 +161,8 @@ window.addEventListener("touchmove", e => {
     })
 });
 
-class Particle{
-    constructor(){
+class Particle {
+    constructor() {
         this.x = mouse.x;
         this.y = mouse.y;
         this.size = Math.random() * 2 + 0.1;
@@ -155,12 +170,12 @@ class Particle{
         this.speedY = Math.random() * 2 - 1;
         this.color = 'hsl('+hue+', 100%, 50%)';
     }
-    update(){
+    update() {
         this.x += this.speedX;
         this.y += this.speedY;
     }
 
-    draw(){
+    draw() {
         ctx.fillstyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -168,8 +183,8 @@ class Particle{
     }
 }
 
-function handlerParticle(){
-    for(let i = 0; i < spots.length; i++){
+function handlerParticle() {
+    for(let i = 0; i < spots.length; i++) {
         spots[i].update();
         spots[i].draw();
         ctx.beginPath();
@@ -180,7 +195,7 @@ function handlerParticle(){
     }
 }
 
-function animate(){
+function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     handlerParticle();
     hue++;

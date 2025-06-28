@@ -16,6 +16,14 @@ body, html{
     transition: 1s;
 }
 
+.max-width-400{
+    max-width: 400px;
+}
+
+.horizontal-center {
+    justify-content: center;
+}
+
 #myinfo{
     display: flex;
     align-items: center;
