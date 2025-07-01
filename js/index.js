@@ -23,30 +23,6 @@ $(document).ready(function(){
       weight: true,
     }, "tags");
     
-    $("#sendEmail").on("click", function() {
-
-      fetch('https://aragas07.42web.io/messaging/message.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `name=${encodeURIComponent($("#name").val())}&email=${encodeURIComponent($("#email").val())}&subject=${encodeURIComponent($("#title").val())}&message=${encodeURIComponent($("#message").val())}`
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.message);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-        // let parms = {
-        //     email: $("#email").val(),
-        //     title: $("#title").val(),
-        //     name: $("#name").val(),
-        //     message: $("#message").val()
-        // }
-        // emailjs.send("service_0hf3487","template_6jzydau",parms).then(alert("Mail sent Successfully"))
-    })
   }
 )
 canvas.width = window.innerWidth;
@@ -58,7 +34,6 @@ arrowhead = document.querySelector("#arrowhead"),
 arrowtop = document.querySelector("#arrowtop"),
 arrowbottom = document.querySelector("#arrowbottom"),
 contline = document.querySelector(".cont-line");
-console.log(cont.innerWidth);
 if(cont.offsetWidth < 433){
     arrowline.className = "arrow_line arrowline_m_width";
     arrow.className = "arrow arrow_m_width";
