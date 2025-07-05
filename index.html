@@ -199,11 +199,11 @@
             $("#sendEmail").click(function() {
             //fetch('https://aragas07.42web.io/messaging/sendEmail', {
                 $.ajax({
-                    url: "https://aragas07.42web.io/messaging/sendEmail",
+                    url: "https://pythonmessaging.vercel.app/",
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    type: "POST",
+                    type: "GET",
                     data: {
                         name: $("#name").val(),
                         email: $("#email").val(),
