@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html lang='en'>
+        <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Email</title>
+        <style>
+            p { font-size: large; }
+            .h-title { font-size: 30px; color: #383838; }
+            .header { display: inline-block; margin: 16px 0 28px 0; }
+            * { font-family: 'Gill Sans'; }
+            img { height: 70px; }
+            .img-cont { position: absolute; display: flex; }
+            .img-cont img { height: 35px; margin-left: 10px; }
+        </style>
+    </head>
+    <body>
+        <div class='header'>
+            <div class='img-cont'>
+                <img src='https://aragas07.42web.io/messaging/latestlogo.png'/>
+                <div class='justify'>
+                    <span class='h-title'>rgie Ragas</span>
+                </div>
+            </div>
+        </div>
+        <p>{$message}</p>
+        <h4>From: {$email} {$name}</h4>
+    </body>
+</html>
