@@ -1,47 +1,161 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send Email with SMTP.js</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Faded Circle Loader</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+    }
+    *, *::after, *::before{
+        -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box;    
+        box-sizing: border-box;  
+        transition: 1s;
+    }
+
+    .loaders {
+      width: 4px !important;
+      border: 8px solid #000; 
+      border-radius: 50%;
+      opacity: 0.6;
+      /*animation: pulse 1.2s infinite ease-in-out;**/
+    }
+
+    
+    .loader {
+      width: 40px!important;
+      height: 40px!important;
+      border-radius: 50%;
+      border: 0px solid transparent!important;
+      background: conic-gradient(
+        from 0deg,
+        #000,
+        #000,
+        #00ffff5b,
+        #00ffff9d,
+        #00ffff
+      );
+      mask: 
+        radial-gradient(farthest-side, transparent calc(100% - 4px), black 0);
+      -webkit-mask: 
+        radial-gradient(farthest-side, transparent calc(100% - 4px), black 0);
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+    
+    .btn, .temp, #myDiv{
+        height: 40px;
+        width: 100px;
+        background-color: #000;
+        border: 1px solid cyan;
+        color: cyan;
+        padding: 7px 19px;
+        font-size: 19px;
+
+    }
+
+    .btn:hover {
+        background-color: cyan;
+        color: black;
+    }
+    .success {
+        color: cyan;
+        text-shadow: 0 0 2px #3ee2ffb7, 0 0 5px #13efff77;
+    }
+
+    .error {
+        color: #f80000;
+        text-shadow: 0 0 2px #ff3e3eb7, 0 0 5px #ff131377;
+    }
+
+    .error, .success {
+        font-weight: 500;
+        font-size: larger;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        animation: slideShow 4s linear normal;
+    }
+    @keyframes slideShow {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        40% {
+            opacity: 0.7;
+        }
+        50% {
+            opacity: 1;
+        }
+        40% {
+            opacity: 0.7;
+        }
+        60% {
+            opacity: 1;
+        }
+        70% {
+            opacity: 0.7;
+        }
+        80% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .cont {
+        margin: 8px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header section added to the body to provide introductory content -->
-    <header>
-        <h1>Email Sender App</h1> <!-- Main heading of the web page -->
-        <p>Click the button below to send an email using SMTP.js</p> <!-- Description of the page functionality -->
-    </header>
-    <input type="text" placeholder="Email" id="email">
-    <input type="text" placeholder="Title" id="title">
-    <input type="text" placeholder="Name" id="name">
-    <input type="text" placeholder="Message" id="message">
-    <button onclick="sendEmail()">Send Email</button>
-    <button id="send">Send</button>
-
-    <div class="modal-body"></div>
-   
-    <script type="text/javascript">
-        $(document).ready(function(){
-        emailjs.init({
-            publicKey: "VQPwgoCwKzha5B3Mb",
-        });
-        $("#send").click(function(){
-            $.get("./email.html",function(e){
-                $(".modal-body").html(e)
+    <duv class="container">
+        <div class="cont">
+            <div class="temp circle loader"></div>
+            <button role="button" id="sendEmail" class="btn"><a>Submit</a></button>
+            <button id="back">back</button>
+        </div>
+        <div class="cont">
+            <p class="success">Email sent successfully</p>
+            <p class="error">Message Failed to Send</p>
+        </div>
+    </duv>
+    <script>
+        $(function() {
+            $("#sendEmail").click(function() {
+                $("#sendEmail").prop("class", "temp circle loader")
+                $("#sendEmail>a").prop("class","hide")
+                console.log("Sample")
             })
-        })
-        });
-        
-        function sendEmail() {
-            let parms = {
-                email: document.getElementById("email").value,
-                title : document.getElementById("title").value,
-                name : document.getElementById("name").value,
-                message : document.getElementById("message").value
-            }
-            emailjs.send("service_0hf3487","template_6jzydau",parms).then(alert("Mail sent Successfully"))
-        }
+            $("#back").click(function() {
+                $(".temp").prop("class","temp")
+                $("#sendEmail>a").prop("class","show")
+            })
+        }) 
     </script>
 </body>
 </html>

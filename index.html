@@ -177,8 +177,11 @@
                                 <label></label>
                             </div>
                         </div>
-                        <div class="p-1">
-                            <button role="button" id="sendEmail" class="btn">Submit</button>
+                        <div class="row p-1">
+                            <button role="button" id="sendEmail" class="btn">Submits</button>
+                            <div class="fill justify">
+                                <a id="response"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,6 +200,7 @@
                 publicKey: "VQPwgoCwKzha5B3Mb",
             });
             $("#sendEmail").click(function() {
+                $("#sendEmail").prop('class', 'btn loader')
                 $html = "<html><head><style>    p { font-size: large; }    .h-title { font-size: 30px; color: #383838; }    .header { display: inline-block; margin: 16px 0 28px 0; }    * { font-family: 'Gill Sans'; }    img { height: 70px;  }    .img-cont { position: absolute; display: flex; }    .img-cont img { height: 35px; margin-left: 10px; }</style></head><body><div class='header'>    <div class='img-cont'>   <img src='{$image}'/>     <div class='justify'>            <span class='h-title'>{$h-title}</span>        </div>    </div></div><p>{$message}</p><h4>From: {$email} {$name}</h4></body></html>"
                 
                 $html = $html.replace('{$email}',$("#email").val())
@@ -216,16 +220,23 @@
                         subject: $("#subject").val(),
                         body: $html
                     }),
-                    success: function(data) {
-                        console.log(data);
+                    success: function(response) {
+                        $("#sendEmail").prop('class', 'btn')
+                        $("#response").prop("class", `text-center ${response.status}`).html(response.message)
+                        setTimeout(function() {
+                            $("#response").prop("class","")
+                        }, 5000)
                     },
                     error: function(xhr, status, error) {
                         console.log("status: ",status)
-                        console.error("Error:", error);
-                        console.log("XHR:", xhr.responseText);
+                        console.error("Error:", error)
+                        console.log("XHR:", xhr.responseText)
+                        $("#response").prop("class", "text-center error").html("Message Failed to Send")
+                        setTimeout(function() {
+                            $("#response").prop("class","")
+                        }, 5000)
                     }
                 })
-            //fetch('https://aragas07.42web.io/messaging/sendEmail', {
             })
         })
     </script>

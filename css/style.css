@@ -157,7 +157,9 @@ textarea{
     background-color: #000;
     border: 1px solid cyan;
     color: cyan;
-    padding: 7px 19px;
+    padding: 1px 19px;
+    height: 40px;
+    width: 140px;
     font-size: 19px;
 
 }
@@ -338,6 +340,10 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.fill {
+    flex: 1;
 }
 
 .column{
@@ -622,4 +628,70 @@ label{
 .form{
     position: relative;
     overflow: hidden;
+}
+
+.success {
+    color: cyan;
+    text-shadow: 0 0 2px #3ee2ffb7, 0 0 5px #13efff77;
+}
+
+.error {
+    color: #f80000;
+    text-shadow: 0 0 2px #ff3e3eb7, 0 0 5px #ff131377;
+}
+
+.error, .success {
+    font-weight: 500;
+    font-size: larger;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+        animation: slideShow 5s linear normal;
+}
+@keyframes slideShow {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.loader {
+    width: 40px!important;
+    height: 40px!important;
+    border-radius: 50%;
+    border: 0px solid transparent!important;
+    color: black;
+    background: conic-gradient(from 0deg, #000, #000, #00ffff5b, #00ffff9d, #00ffff);
+    mask: 
+        radial-gradient(farthest-side, transparent calc(100% - 4px), black 0);
+    -webkit-mask: 
+        radial-gradient(farthest-side, transparent calc(100% - 4px), black 0);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
 }
