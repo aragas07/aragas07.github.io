@@ -178,7 +178,7 @@
                             </div>
                         </div>
                         <div class="row p-1">
-                            <button role="button" id="sendEmail" class="btn">Submits</button>
+                            <button role="button" id="sendEmail" class="btn">Submit</button>
                             <div class="fill justify">
                                 <a id="response"></a>
                             </div>
@@ -209,7 +209,8 @@
                 $html = $html.replace('$image','https://raw.githubusercontent.com/aragas07/aragas07.github.io/refs/heads/main/css/latestlogo.png')
                 $html = $html.replace('$h-title','rgie Ragas')
                 $.ajax({
-                    url: "https://pythonmessaging.vercel.app/send_message",
+                    //url: "https://pythonmessaging.vercel.app/send_message",
+                    url: "http://127.0.0.1:8000/send_message",
                     headers: {
                         'Content-Type': 'application/json'
                     },

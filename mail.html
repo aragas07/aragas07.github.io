@@ -138,6 +138,8 @@
             <div class="temp circle loader"></div>
             <button role="button" id="sendEmail" class="btn"><a>Submit</a></button>
             <button id="back">back</button>
+            <button id="submit">submit</button>
+            <button id="delete">delete</button>
         </div>
         <div class="cont">
             <p class="success">Email sent successfully</p>
@@ -154,6 +156,43 @@
             $("#back").click(function() {
                 $(".temp").prop("class","temp")
                 $("#sendEmail>a").prop("class","show")
+            })
+
+            $("#delete").click(function() {
+              $.ajax({
+                url: "http://127.0.01:8000/user",
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                type: 'OPTIONS',
+                dataType: 'json',
+                data: JSON.stringify({
+                  'user_id': 'ahiasa'
+                })
+              })
+            })
+            $("#submit").click(function() {
+              $.ajax({
+                  url: "https://pythonmessaging.vercel.app/user/ydiSF4IDijbK4dx0m9DX",
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  type: "PUT",
+                  dataType: 'json',
+                  data: JSON.stringify({
+                      name: 'Arlyn Traiga Ragas',
+                      email: 'arlyn.ragas@dorsu.edu.ph',
+                      age: 36
+                  }),
+                  success: function(response) {
+                    console.log('success')
+                  },
+                  error: function(xhr, status, error) {
+                      console.log("status: ",status)
+                      console.error("Error:", error)
+                      console.log("XHR:", xhr.responseText)
+                  }
+              })
             })
         }) 
     </script>
