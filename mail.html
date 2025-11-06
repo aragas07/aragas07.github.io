@@ -173,18 +173,14 @@
             })
             $("#submit").click(function() {
               $.ajax({
-                  url: "https://pythonmessaging.vercel.app/user/ydiSF4IDijbK4dx0m9DX",
+                  url: "https://python-messaging-1.onrender.com/all_users",
                   headers: {
                       'Content-Type': 'application/json'
                   },
-                  type: "PUT",
+                  type: "GET",
                   dataType: 'json',
-                  data: JSON.stringify({
-                      name: 'Arlyn Traiga Ragas',
-                      email: 'arlyn.ragas@dorsu.edu.ph',
-                      age: 36
-                  }),
                   success: function(response) {
+                    console.log(response)
                     console.log('success')
                   },
                   error: function(xhr, status, error) {
