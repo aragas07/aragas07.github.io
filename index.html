@@ -17,7 +17,7 @@
     </div>
     <div id="header">
         <div class="img-cont">
-            <img src="css/latestlogo.png">
+            <img id="logo-header" src="css/latestlogo.png">
             <div class="justify">
                 <a class="h-title">rgie Ragas</a>
             </div>
@@ -198,7 +198,12 @@
         $(function(){
             emailjs.init({
                 publicKey: "VQPwgoCwKzha5B3Mb",
-            });
+            })
+
+            $("#logo-header").dblclick(function() {
+                window.location.href = 'list.html'
+            })
+
             $("#sendEmail").click(function() {
                 $("#sendEmail").prop('class', 'btn loader')
                 $html = "<html><head><style>    p { font-size: large; }    .h-title { font-size: 30px; color: #383838; }    .header { display: inline-block; margin: 16px 0 28px 0; }    * { font-family: 'Gill Sans'; }    img { height: 70px;  }    .img-cont { position: absolute; display: flex; }    .img-cont img { height: 35px; margin-left: 10px; }</style></head><body><div class='header'><div class='img-cont'><img src='$image'/><div class='justify'><span class='h-title'>$h-title</span></div></div></div><p>$message</p><h4>From: $email</h4><h4>Name: $name</h4></body></html>"
@@ -209,7 +214,7 @@
                 $html = $html.replace('$image','https://raw.githubusercontent.com/aragas07/aragas07.github.io/refs/heads/main/css/latestlogo.png')
                 $html = $html.replace('$h-title','rgie Ragas')
                 $.ajax({
-                    url: "https://pythonmessaging.vercel.app/send_message",
+                    url: "https://python-messaging-1.onrender.com/send_message",
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -231,13 +236,39 @@
                         console.log("status: ",status)
                         console.error("Error:", error)
                         console.log("XHR:", xhr.responseText)
+                        $("#sendEmail").prop('class', 'btn')
                         $("#response").prop("class", "text-center error").html("Message Failed to Send")
                         setTimeout(function() {
                             $("#response").prop("class","").html("")
                         }, 5000)
                     }
                 })
+                
             })
+            
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async (pos) => {
+                    const lat = pos.coords.latitude
+                    const lon = pos.coords.longitude
+                    console.log('coords', lat, lon)
+
+                    // Reverse geocode via Nominatim (OpenStreetMap). Respect rate limits.
+                    const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`
+                    try {
+                        const res = await fetch(url, { headers: { 'User-Agent': 'MyApp/1.0' }})
+                        const json = await res.json()
+                        console.log('address object:', json.address)
+                        alert('Approx. address: ' + (json.display_name || 'unknown'))
+                    } catch (err) {
+                    }
+                }, (err) => {
+                    console.error('permission or error', err)
+                    alert('Could not get location: ' + err.message)
+                }, { enableHighAccuracy: false, timeout: 10000 })
+            }
+
+
         })
     </script>
 </body>
