@@ -246,29 +246,35 @@
                 
             })
             
-            
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(async (pos) => {
-                    const lat = pos.coords.latitude
-                    const lon = pos.coords.longitude
-                    console.log('coords', lat, lon)
-
-                    // Reverse geocode via Nominatim (OpenStreetMap). Respect rate limits.
-                    const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`
-                    try {
-                        const res = await fetch(url, { headers: { 'User-Agent': 'MyApp/1.0' }})
-                        const json = await res.json()
-                        console.log('address object:', json.address)
-                        alert('Approx. address: ' + (json.display_name || 'unknown'))
-                    } catch (err) {
-                    }
-                }, (err) => {
-                    console.error('permission or error', err)
-                    alert('Could not get location: ' + err.message)
-                }, { enableHighAccuracy: false, timeout: 10000 })
+            async function getPublicIP() {
+                try {
+                    const res = await fetch('https://api.ipify.org?format=json');
+                    const data = await res.json();
+                    return data.ip; // e.g. "203.0.113.45"
+                } catch (err) {
+                    console.error('Failed to get public IP:', err);
+                    return null;
+                }
             }
-
-
+            const now = new Date();
+            getPublicIP().then(ip => {
+                $.ajax({
+                    url: "http://127.0.0.1:8000/add_visitor",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    type: "POST",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        ip: ip,
+                        date: now
+                    }),
+                    success: function(response) {
+                        console.log(response)
+                        console.log("date :", now)
+                    }
+                })
+            })
         })
     </script>
 </body>
