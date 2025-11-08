@@ -12,14 +12,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+        <img src="css/trash.svg" alt="" onclick="sample('ers')" style="color:aliceblue; background-color: aliceblue;" srcset="">
     <div id="container" class="m-4 ">
     </div>
 
 </body>
     <script>
         $(function() {
+            console.log($("#container").children().length)
+            
+            
+        })
+        function sample(str) {
             $.ajax({
-                url: "http://127.0.0.1:8000/all_visitor",
+                url: `http://127.0.0.1:8000/all_visitor/${$("#container").children().length}`,
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -27,16 +33,27 @@
                 dataType: 'json',
                 success: function(response) {
                     response.forEach(visitor => {
-                        $card = `<div class="card p-4 bg-dark border border-dark-subtle mb-1"><div style='margin-left: 0px!important; margin-right: 0px!important' class="row w-100 justify-content-between"><a class="text-white">Date: $date</a><a class="ip text-white">IP: $ip</a><image src="css/trash.svg" class='m-1' width='30' height='20'/></div</div>`
+                        $card = `<div class="card p-4 bg-dark border border-dark-subtle mb-1"><div style='margin-left: 0px!important; margin-right: 0px!important' class="row w-100 justify-content-between"><a class="text-white">Date: $date</a><a class="ip text-white">IP: $ip</a><image src="css/trash.svg" class='m-1' onclick="deletedata('${visitor.id}')" width='30' height='20'/></div</div>`
                         
                         $card = $card.replace("$date", visitor.date)
                         $card = $card.replace("$ip", visitor.ip)
                         $("#container").append($card)
                         console.log(`${JSON.stringify(visitor)} == ${visitor.name}`)
                     });
+                    
+                    console.log($("#container").children().length)
                 }
             })
-        })
+        }
+        function deletedata(str) {
+            $.ajax({
+                url: `http://127.0.0.1:8000/visitor/${str}`,
+                type: "DELETE",
+                error: function() {
+
+                }
+            })
+        }
     </script>
 
 </html>

@@ -256,22 +256,13 @@
                     return null;
                 }
             }
-            const now = new Date();
             getPublicIP().then(ip => {
                 $.ajax({
                     url: "http://127.0.0.1:8000/add_visitor",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
                     type: "POST",
-                    dataType: 'json',
-                    data: JSON.stringify({
-                        ip: ip,
-                        date: now
-                    }),
+                    data: { ip: ip },
                     success: function(response) {
                         console.log(response)
-                        console.log("date :", now)
                     }
                 })
             })
