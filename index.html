@@ -258,7 +258,7 @@
             }
             getPublicIP().then(ip => {
                 $.ajax({
-                    url: "http://127.0.0.1:8000/add_visitor",
+                    url: "https://python-messaging-1.onrender.com/add_visitor",
                     type: "POST",
                     data: { ip: ip },
                     success: function(response) {
