@@ -257,14 +257,15 @@
                 }
             }
             getPublicIP().then(ip => {
-                $.ajax({
-                    url: "https://python-messaging-1.onrender.com/add_visitor",
-                    type: "POST",
-                    data: { ip: ip },
-                    success: function(response) {
-                        console.log(response)
-                    }
-                })
+                if(false)
+                    $.ajax({
+                        url: "https://python-messaging-1.onrender.com/add_visitor",
+                        type: "POST",
+                        data: { ip: ip },
+                        success: function(response) {
+                            console.log(response)
+                        }
+                    })
             })
         })
     </script>
